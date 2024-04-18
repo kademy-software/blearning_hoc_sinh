@@ -192,23 +192,11 @@
 
 </body>
 <script>
-    const quizData = [
-    {
-        question: "What is 2 + 2?",
-        choices: ["3", "4", "5", "6"],
-        correct: "4"
-    },
-    {
-        question: "What is 3 * 4?",
-        choices: ["9", "10", "11", "12"],
-        correct: "12"
-    },
-    // Add more questions as needed
-];
+    
 
 let currentQuestion = 0;
 let score = 0;
-
+let he_so=2.5; 
 const quizContainer = document.getElementById('quiz-container');
 const resultContainer = document.getElementById('result-container');
 const questionElement = document.getElementById('question');
@@ -219,7 +207,7 @@ const submitButton = document.getElementById('submit-btn');
 
 // Function to get score from local storage
 function getSavedScore() {
-    const savedScore = localStorage.getItem('quizScore');
+    const savedScore = localStorage.getItem('quizScore27');
     if (savedScore !== null) {
         return parseInt(savedScore);
     } else {
@@ -233,21 +221,21 @@ function getSavedScore() {
 function displayPreviousScore() {
     const previousScore = getSavedScore();
 
-    if (previousScore === 2) {
-        scoreElement.textContent = `Bạn đã vượt qua bài kiểm tra (2/2 câu)`;
-    } else if (previousScore < 2) {
-        scoreElement.textContent = `Bạn chưa vượt qua bài kiểm tra ở lần trước`;
+    if (previousScore === 4) {
+        scoreElement.textContent = `Bạn đã vượt qua bài kiểm tra (4/4 câu)`;
+    } else if (previousScore < 4) {
+        scoreElement.textContent = `Bạn chưa vượt qua bài luyện tập ở lần trước:  ${previousScore*he_so}`;
     }
 
     // Get the highest score
     let highestScore = parseInt(localStorage.getItem('highestScore')) || -1;
 
-    if (highestScore === 2) {
+    if (highestScore === 4) {
         kq.textContent = `Chúc mừng bạn đã thi đậu`;
-    } else if(highestScore === 1 ) {
+    } else if(highestScore <4 && highestScore>0 ) {
         kq.textContent = `Rất tiếc, bạn đã thi hỏng`;
     } 
-    else{
+    else if(highestScore ==-1){
         kq.textContent = `Chưa có kết quả`;
     }
 
@@ -255,7 +243,7 @@ function displayPreviousScore() {
         highestScore = previousScore;
         localStorage.setItem('highestScore', highestScore);
     }
-    scoreElementMax.textContent = `Điểm cao: ${highestScore}`;
+    scoreElementMax.textContent = `Điểm cao nhất: ${highestScore*he_so}`;
 }
 
 
@@ -291,10 +279,10 @@ function selectAnswer(choice) {
 function showResult() {
     quizContainer.style.display = 'none';
     resultContainer.style.display = 'block';
-    scoreElement.textContent = `Your score: ${score}`;
+    scoreElement.textContent = `Your score: ${score*2.5}`;
 
     // Save score to local storage
-    localStorage.setItem('quizScore', score);
+    localStorage.setItem('quizScore27', score);
 }
 
 // Start the quiz
