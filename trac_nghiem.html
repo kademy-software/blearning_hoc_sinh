@@ -84,9 +84,23 @@
 
     </div>
   </header><!-- End Header -->
+  <section id="cta" class="cta">
+    <div class="container">
 
+      <div class="row" data-aos="zoom-in">
+        <div class="col-lg-9 text-center text-lg-start">
+          <h3>TRẮC NGHIỆM TIN HỌC 10 - BÀI 27,28</h3>
+         
+        </div>
+        <div class="col-lg-3 cta-btn-container text-center">
+          
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Cta Section -->
   <main>
-    <div id="quiz-container" ">
+    <div id="quiz-container">
         <div>
       
         </div>
@@ -105,23 +119,25 @@
     </div>
   </main><!-- End #main -->
 <style>
+    @media (max-width: 768px) {
+        .cta-btn-container {
+          margin-top: 10px; /* Add margin-top for better spacing */
+        }
+    }
     #quiz-container {
-        position: absolute;
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
- 
-        max-width: 1000px;
+        position: relative; /* Change position to relative */
+        top: 50%; /* Reset top position */
+        left: auto; /* Reset left position */
+        transform: none; /* Reset transform */
+        max-width: 100%; /* Set maximum width to fill the screen */
         border-radius: 10px;
-        margin: 10px auto; 
-
+        margin: 10px auto;
     }
     #result-container{
-        position: absolute;
-        top: 70%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        position:absolute; /* Change position to relative */
+        top: 80%; /* Reset top position */
+        left: 40%; /* Reset left position */
+        transform: none; /* Reset transform */
         text-align: center;
     }
     #submit-btn {
@@ -158,7 +174,10 @@
         background: #f62424;
         color: #fff;
     }
-    
+    #cta {
+        height: 10px;
+        margin-top: 10px;
+    }
     
 </style>    
   <!-- ======= Footer ======= -->
@@ -182,20 +201,33 @@
 <script>
     const quizData = [
     {
-        question: "What is 2 + 2?",
-        choices: ["3", "4", "5", "6"],
-        correct: "4"
+        question: "Trong python, khi gọi hàm, các tham số (parameter) sẽ được truyền bằng giá trị thông qua đối số (argument) của hàm, số lượng giá trị được truyền vào hàm và số tham số trong khai báo của hàm phải như thế nào?",
+        choices: ["A. khác nhau", "B. bằng nhau", "C. hơn nhau 1", "D. kém nhau 1"],
+        correct: "B. bằng nhau"
     },
     {
-        question: "What is 3 * 4?",
-        choices: ["9", "10", "11", "12"],
-        correct: "12"
+        question: "Trong python, tham số của hàm được định nghĩa khi khai báo hàm và được dùng như biến trong định nghĩa hàm. Đối số là giá trị được truyền vào khi gọi hàm là 3 đối số. Vậy số lượng tham số trong khai báo của hàm là bao nhiêu?",
+        choices: ["A. 1", "B. 2", "C. 3", "D. 0"],
+        correct: "C. 3"
     },
+    {
+        question: "Quan sát các câu lệnh cách truyền dữ liệu qua tham số trong ngôn ngữ python, cho biết có kết quả xuất ra gì? \n 1 >>> def f(a,b,c): \n 2 return a+b+c \n 3 >>> f(1,2,3)",
+        choices: ["A. Hàm f() có 3 tham số a,b,c và đối số là 1,2,3", "B. Hàm f() có 3 tham số a,b,c và đối số là 6", "C. Hàm f() có 1 tham số f và đối số là 6", "D. Hàm f() có 3 tham số 1,2,3 và đối số là a,b,c"],
+        correct: "A. Hàm f() có 3 tham số a,b,c và đối số là 1,2,3"
+    },
+    {
+        question: "Phát biểu nào sau đây là sai khi nói về ưu điểm chương trình con trong python?",
+        choices: ["A. Giúp việc lập trình trở lên dễ dàng hơn.", "B. Tránh được việc phải viết đi viết lại cùng một dãy lệnh.", "C. Chương trình dễ hiểu, dễ đọc.", "D. Khó phát hiện lỗi."],
+        correct: "D. Khó phát hiện lỗi."
+    },
+    
+  
     // Add more questions as needed
 ];
 
 let currentQuestion = 0;
 let score = 0;
+let he_so=2.5; 
 
 const quizContainer = document.getElementById('quiz-container');
 const resultContainer = document.getElementById('result-container');
@@ -208,7 +240,7 @@ const submitButton = document.getElementById('submit-btn');
 
 // Function to get score from local storage
 function getSavedScore() {
-    const savedScore = localStorage.getItem('quizScore');
+    const savedScore = localStorage.getItem('quizScore27');
     if (savedScore !== null) {
         return parseInt(savedScore);
     } else {
@@ -221,21 +253,20 @@ function getSavedScore() {
 function displayPreviousScore() {
     const previousScore = getSavedScore();
 
-    if (previousScore == 2) {
-        scoreElement.textContent = `Bạn đã vượt qua bài kiểm tra (2/2 câu)`;
-    } else if (previousScore < 2) {
+    if (previousScore == 4) {
+        scoreElement.textContent = `Bạn đã vượt qua bài kiểm tra (4/4 câu)`;
+    } else if (previousScore < 4) {
         scoreElement.textContent = `Bạn chưa vượt qua bài kiểm tra ở lần trước`;
     }
 
     // Get the highest score
     let highestScore = parseInt(localStorage.getItem('highestScore')) || 0;
-
     if (previousScore > highestScore) {
         highestScore = previousScore;
         localStorage.setItem('highestScore', highestScore);
-        scoreElementMax.textContent = `Điểm cao: ${highestScore}`;
+        scoreElementMax.textContent = `Điểm cao: ${highestScore*he_so}`;
     } else {
-        scoreElementMax.textContent = `Điểm cao: ${highestScore}`;
+        scoreElementMax.textContent = `Điểm cao: ${highestScore*he_so}`;
     }
  
 }
@@ -272,10 +303,10 @@ function selectAnswer(choice) {
 function showResult() {
     quizContainer.style.display = 'none';
     resultContainer.style.display = 'block';
-    scoreElement.textContent = `Your score: ${score}`;
+    scoreElement.textContent = `Your score: ${score*he_so}`;
 
     // Save score to local storage
-    localStorage.setItem('quizScore', score);
+    localStorage.setItem('quizScore27', score);
 }
 
 // Start the quiz
