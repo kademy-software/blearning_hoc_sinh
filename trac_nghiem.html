@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>BLearning - Học sinh</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <script src="https://kit.fontawesome.com/c402fe43bf.js" crossorigin="anonymous"></script>
+  <!-- Favicons -->
+  <link href="phieu.jpg" rel="icon">
+  <link href="phieu.jpg" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="index.html">BLearning</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href=index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Trang chủ</a></li>
+          <li><a class="nav-link scrollto" href="#about">Tin tức, thông báo</a></li>
+
+          <li class="dropdown"><a href="#"><span>Trắc nghiệm</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Tin Học 10</a></li>
+              <li class="dropdown"><a href="#"><span>Chuyên đề Tin Học</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Tin Học 10 (10A4,10A5)</a></li>
+                 
+                </ul>
+              </li>
+              <li><a href="#">Tin Học 11</a></li>
+              <li><a href="#">Tin Học 12</a></li>
+        
+            </ul>
+          </li>
+
+          <li class="dropdown"><a href="#"><span>Học sinh</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Lịch sử bài làm</a></li>
+            
+              <li><a href="#">Bảng điểm</a></li>
+         
+        
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>HSG Tin </span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Đăng nhập</a></li>
+              <li><a href="#">Thư viện đề thi học sinh giỏi</a></li>
+              <li><a href="#">Lấy mã nguồn trang web</a></li>
+              <li><a href="#">Thêm / sửa / xoá /xem trắc nghiệm</a></li>
+         
+        
+            </ul>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main>
+    <div id="quiz-container" ">
+        <div>
+      
+        </div>
+        
+        <div id="question"></div>
+        <div id="choices"></div>
+    
+    </div>
+    <div id="result-container">
+        <h4>Kết quả</h4>
+       
+        <div id="score"></div>
+        <div id="high"></div>
+      
+        <a href="trac_nghim.html"  id="submit-btn" class="btn-get-started animate__animated animate__fadeInUp scrollto">Xem kết quả chính thức</a>
+    </div>
+  </main><!-- End #main -->
+<style>
+    #quiz-container {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+ 
+        max-width: 1000px;
+        border-radius: 10px;
+        margin: 10px auto; 
+
+    }
+    #result-container{
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    #submit-btn {
+        font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  padding: 8px 26px;
+  border-radius: 2px;
+  transition: 0.5s;
+  margin: 10px;
+  border-radius: 50px;
+  border: 2px solid #f6b024;
+  color: #fff;
+  background: #f62424;
+    }
+    
+    #submit-btn:hover {
+        background-color: #0056b3;
+    }
+    #choices button {
+        margin: 5px;
+        padding: 10px 20px;
+        background-color: #f8f9fa;
+        color: #212529;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    #choices button:hover {
+        background: #f62424;
+        color: #fff;
+    }
+    
+    
+</style>    
+  <!-- ======= Footer ======= -->
+
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+<script>
+    const quizData = [
+    {
+        question: "What is 2 + 2?",
+        choices: ["3", "4", "5", "6"],
+        correct: "4"
+    },
+    {
+        question: "What is 3 * 4?",
+        choices: ["9", "10", "11", "12"],
+        correct: "12"
+    },
+    // Add more questions as needed
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+const quizContainer = document.getElementById('quiz-container');
+const resultContainer = document.getElementById('result-container');
+const questionElement = document.getElementById('question');
+const choicesElement = document.getElementById('choices');
+const scoreElement = document.getElementById('score');
+const scoreElementMax = document.getElementById('high');
+
+const submitButton = document.getElementById('submit-btn');
+
+// Function to get score from local storage
+function getSavedScore() {
+    const savedScore = localStorage.getItem('quizScore');
+    if (savedScore !== null) {
+        return parseInt(savedScore);
+    } else {
+        return 0;
+    }
+}
+
+// Function to display previous score
+// Function to display previous score and highest score
+function displayPreviousScore() {
+    const previousScore = getSavedScore();
+
+    if (previousScore == 2) {
+        scoreElement.textContent = `Bạn đã vượt qua bài kiểm tra (2/2 câu)`;
+    } else if (previousScore < 2) {
+        scoreElement.textContent = `Bạn chưa vượt qua bài kiểm tra ở lần trước`;
+    }
+
+    // Get the highest score
+    let highestScore = parseInt(localStorage.getItem('highestScore')) || 0;
+
+    if (previousScore > highestScore) {
+        highestScore = previousScore;
+        localStorage.setItem('highestScore', highestScore);
+        scoreElementMax.textContent = `Điểm cao: ${highestScore}`;
+    } else {
+        scoreElementMax.textContent = `Điểm cao: ${highestScore}`;
+    }
+ 
+}
+
+
+function showQuestion() {
+    const currentQuizData = quizData[currentQuestion];
+    questionElement.textContent = currentQuizData.question;
+    choicesElement.innerHTML = '';
+
+    currentQuizData.choices.forEach(choice => {
+        const button = document.createElement('button');
+        button.textContent = choice;
+        button.addEventListener('click', () => selectAnswer(choice));
+        choicesElement.appendChild(button);
+    });
+}
+
+function selectAnswer(choice) {
+    const currentQuizData = quizData[currentQuestion];
+    if (choice === currentQuizData.correct) {
+        score++;
+    }
+
+    currentQuestion++;
+
+    if (currentQuestion < quizData.length) {
+        showQuestion();
+    } else {
+        showResult();
+    }
+}
+
+function showResult() {
+    quizContainer.style.display = 'none';
+    resultContainer.style.display = 'block';
+    scoreElement.textContent = `Your score: ${score}`;
+
+    // Save score to local storage
+    localStorage.setItem('quizScore', score);
+}
+
+// Start the quiz
+displayPreviousScore(); // Display previous score
+showQuestion();
+
+submitButton.addEventListener('click', () => {
+    showResult();
+});
+</script>    
+</html>
